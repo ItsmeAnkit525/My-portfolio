@@ -64,9 +64,9 @@ function Hero() {
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-600/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-cyan-400/20 to-blue-600/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-purple-400/10 to-pink-600/10 rounded-full blur-3xl animate-spin slow-spin"></div>
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/30 to-purple-600/30 dark:from-blue-400/20 dark:to-purple-600/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-cyan-400/30 to-blue-600/30 dark:from-cyan-400/20 dark:to-blue-600/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-purple-400/20 to-pink-600/20 dark:from-purple-400/10 dark:to-pink-600/10 rounded-full blur-3xl animate-spin slow-spin"></div>
       </div>
 
       {/* Main Content */}
@@ -154,14 +154,23 @@ function Hero() {
           ))}
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-gray-400 dark:bg-gray-600 rounded-full mt-2 animate-pulse"></div>
+        {/* Subtle Scroll Hint */}
+        <div className="mt-16 animate-fade-in-up delay-1200">
+          <div className="flex justify-center">
+            <svg
+              className="w-6 h-6 text-gray-400 dark:text-gray-500 animate-bounce opacity-60"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              />
+            </svg>
           </div>
-          <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-            Scroll down
-          </p>
         </div>
       </div>
 
@@ -213,6 +222,9 @@ function Hero() {
         }
         .delay-1000 {
           animation-delay: 1s;
+        }
+        .delay-1200 {
+          animation-delay: 1.2s;
         }
       `}</style>
     </section>

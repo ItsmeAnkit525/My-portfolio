@@ -1,4 +1,33 @@
 import React, { useState } from "react";
+import {
+  FaReact,
+  FaJs,
+  FaHtml5,
+  FaCss3Alt,
+  FaNodeJs,
+  FaPython,
+  FaJava,
+  FaGitAlt,
+  FaGithub,
+  FaDocker,
+  FaLinux,
+  FaFigma,
+  FaLaptopCode,
+  FaCogs,
+  FaCode,
+  FaTools,
+} from "react-icons/fa";
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiExpress,
+  SiPostgresql,
+  SiMongodb,
+  SiCplusplus,
+  SiMysql,
+} from "react-icons/si";
+import { MdOutlineStars } from "react-icons/md";
 
 function Skills() {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -7,13 +36,22 @@ function Skills() {
     frontend: {
       name: "Frontend",
       skills: [
-        { name: "React", level: 90, icon: "⚛️" },
-        { name: "Next.js", level: 85, icon: "🔺" },
-        { name: "TypeScript", level: 80, icon: "🔷" },
-        { name: "TailwindCSS", level: 95, icon: "🎨" },
-        { name: "JavaScript", level: 90, icon: "💛" },
-        { name: "HTML5", level: 95, icon: "🧱" },
-        { name: "CSS3", level: 90, icon: "🎭" },
+        { name: "React", icon: <FaReact className="text-blue-500" /> },
+        {
+          name: "Next.js",
+          icon: <SiNextdotjs className="text-black dark:text-white" />,
+        },
+        {
+          name: "TypeScript",
+          icon: <SiTypescript className="text-blue-600" />,
+        },
+        {
+          name: "TailwindCSS",
+          icon: <SiTailwindcss className="text-teal-500" />,
+        },
+        { name: "JavaScript", icon: <FaJs className="text-yellow-500" /> },
+        { name: "HTML5", icon: <FaHtml5 className="text-orange-500" /> },
+        { name: "CSS3", icon: <FaCss3Alt className="text-blue-500" /> },
       ],
       color: "from-blue-500 to-cyan-500",
       bg: "bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20",
@@ -22,13 +60,19 @@ function Skills() {
     backend: {
       name: "Backend",
       skills: [
-        { name: "Node.js", level: 85, icon: "🟢" },
-        { name: "Express", level: 80, icon: "🚄" },
-        { name: "Python", level: 88, icon: "🐍" },
-        { name: "PostgreSQL", level: 75, icon: "🐘" },
-        { name: "MongoDB", level: 82, icon: "🍃" },
-        // { name: "Redis", level: 70, icon: "🔴" },
-        // { name: "GraphQL", level: 65, icon: "🔗" },
+        { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
+        {
+          name: "Express",
+          icon: <SiExpress className="text-gray-600 dark:text-gray-300" />,
+        },
+        { name: "Python", icon: <FaPython className="text-blue-500" /> },
+        {
+          name: "PostgreSQL",
+          icon: <SiPostgresql className="text-blue-600" />,
+        },
+        { name: "MongoDB", icon: <SiMongodb className="text-green-500" /> },
+        // { name: "Redis", icon: "🔴" },
+        // { name: "GraphQL", icon: "🔗" },
       ],
       color: "from-green-500 to-emerald-500",
       bg: "bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20",
@@ -37,13 +81,19 @@ function Skills() {
     tools: {
       name: "Tools & Technologies",
       skills: [
-        { name: "Git", level: 90, icon: "📝" },
-        { name: "GitHub", level: 88, icon: "🐙" },
-        { name: "Docker", level: 40, icon: "🐋" },
-        // { name: "AWS", level: 70, icon: "☁️" },
-        { name: "VS Code", level: 95, icon: "💙" },
-        { name: "Linux", level: 40, icon: "🐧" },
-        { name: "Figma", level: 40, icon: "🎨" },
+        { name: "Git", icon: <FaGitAlt className="text-orange-500" /> },
+        {
+          name: "GitHub",
+          icon: <FaGithub className="text-gray-800 dark:text-white" />,
+        },
+        { name: "Docker", icon: <FaDocker className="text-blue-500" /> },
+        // { name: "AWS", icon: "☁️" },
+        {
+          name: "VS Code",
+          icon: <FaCode className="text-blue-500" />,
+        },
+        { name: "Linux", icon: <FaLinux className="text-yellow-600" /> },
+        { name: "Figma", icon: <FaFigma className="text-purple-500" /> },
       ],
       color: "from-purple-500 to-pink-500",
       bg: "bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20",
@@ -52,13 +102,16 @@ function Skills() {
     languages: {
       name: "Programming Languages",
       skills: [
-        { name: "JavaScript", level: 90, icon: "🟡" },
-        { name: "TypeScript", level: 85, icon: "🔷" },
-        { name: "Python", level: 88, icon: "🐍" },
-        { name: "Java", level: 80, icon: "☕" },
-        { name: "C++", level: 75, icon: "⚡" },
-        { name: "SQL", level: 82, icon: "🗃️" },
-        // { name: "Go", level: 60, icon: "🔵" },
+        { name: "JavaScript", icon: <FaJs className="text-yellow-500" /> },
+        {
+          name: "TypeScript",
+          icon: <SiTypescript className="text-blue-600" />,
+        },
+        { name: "Python", icon: <FaPython className="text-blue-500" /> },
+        { name: "Java", icon: <FaJava className="text-red-500" /> },
+        { name: "C++", icon: <SiCplusplus className="text-blue-600" /> },
+        { name: "SQL", icon: <SiMysql className="text-blue-600" /> },
+        // { name: "Go", icon: "🔵" },
       ],
       color: "from-orange-500 to-red-500",
       bg: "bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20",
@@ -76,11 +129,11 @@ function Skills() {
   };
 
   const categories = [
-    { key: "all", name: "All Skills", icon: "🌟" },
-    { key: "frontend", name: "Frontend", icon: "💻" },
-    { key: "backend", name: "Backend", icon: "⚙️" },
-    { key: "languages", name: "Languages", icon: "📝" },
-    { key: "tools", name: "Tools", icon: "🛠️" },
+    { key: "all", name: "All Skills", icon: <MdOutlineStars /> },
+    { key: "frontend", name: "Frontend", icon: <FaLaptopCode /> },
+    { key: "backend", name: "Backend", icon: <FaCogs /> },
+    { key: "languages", name: "Languages", icon: <FaCode /> },
+    { key: "tools", name: "Tools", icon: <FaTools /> },
   ];
 
   return (
@@ -102,7 +155,7 @@ function Skills() {
           <button
             key={category.key}
             onClick={() => setActiveCategory(category.key)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 ${
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 flex items-center ${
               activeCategory === category.key
                 ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg"
                 : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
@@ -115,45 +168,27 @@ function Skills() {
       </div>
 
       {/* Skills Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
         {getFilteredSkills().map((skill, index) => (
           <div
             key={`${skill.name}-${index}`}
-            className="group bg-white dark:bg-gray-800 rounded-xl p-4 shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-200 dark:border-gray-700"
+            className="group bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl dark:shadow-gray-900/20 transition-all duration-300 transform hover:scale-110 hover:-translate-y-2 border border-gray-200 dark:border-gray-700 relative overflow-hidden"
           >
-            <div className="flex items-center justify-between mb-3">
-              <div className="flex items-center space-x-2">
-                <span className="text-2xl">{skill.icon}</span>
-                <span className="font-semibold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                  {skill.name}
-                </span>
+            {/* Background gradient effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/10 dark:to-purple-900/10 opacity-0 group-hover:opacity-70 dark:group-hover:opacity-100 transition-opacity duration-300"></div>
+
+            {/* Content */}
+            <div className="relative z-10 text-center">
+              <div className="text-4xl mb-3 transform group-hover:scale-110 transition-transform duration-300 flex justify-center">
+                {skill.icon}
               </div>
-              <span className="text-sm font-bold text-blue-600 dark:text-blue-400">
-                {skill.level}%
-              </span>
+              <h3 className="font-bold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 text-sm leading-tight">
+                {skill.name}
+              </h3>
             </div>
 
-            {/* Progress Bar */}
-            <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 overflow-hidden">
-              <div
-                className="h-2.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full transition-all duration-1000 ease-out"
-                style={{
-                  width: `${skill.level}%`,
-                  animation: `slideIn 1s ease-out ${index * 0.1}s both`,
-                }}
-              ></div>
-            </div>
-
-            {/* Skill Level Text */}
-            <div className="mt-2 text-xs text-gray-500 dark:text-gray-400">
-              {skill.level >= 90
-                ? "Expert"
-                : skill.level >= 80
-                ? "Advanced"
-                : skill.level >= 70
-                ? "Intermediate"
-                : "Beginner"}
-            </div>
+            {/* Hover shine effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
           </div>
         ))}
       </div>
@@ -176,17 +211,6 @@ function Skills() {
           </div>
         ))}
       </div>
-
-      <style jsx>{`
-        @keyframes slideIn {
-          from {
-            width: 0%;
-          }
-          to {
-            width: var(--final-width);
-          }
-        }
-      `}</style>
     </section>
   );
 }

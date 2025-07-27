@@ -55,7 +55,32 @@ function Projects() {
       year: "2024",
     },
     {
-      id: 3,
+      id: 4,
+      title: "Visaire - AI-Powered PDF Animation Platform",
+      description:
+        "Transform PDFs into engaging animated stories using AI technology for enhanced learning experiences.",
+      longDescription:
+        "Developed Visaire, an innovative AI-powered platform that converts static PDF documents into dynamic animated stories. The platform features intelligent content analysis, automatic key concept extraction, multiple animation themes, smooth transitions, and export capabilities. Designed for students, educators, and content creators to make complex topics more engaging and accessible through visual storytelling.",
+      tech: [
+        "React",
+        "Node.js",
+        "AI/ML",
+        "PDF Processing",
+        "Animation",
+        "TailwindCSS",
+        "MongoDB",
+        "Express",
+      ],
+      category: "fullstack",
+      image: "📄",
+      github: null,
+      live: "https://visaire.in",
+      featured: true,
+      status: "Completed",
+      year: "2024",
+    },
+    {
+      id: 5,
       title: "Customer Support Chatbot using NLP",
       description:
         "Intelligent customer support chatbot with natural language processing capabilities.",
@@ -134,7 +159,6 @@ function Projects() {
     { key: "all", name: "All Projects", icon: "🌟" },
     { key: "fullstack", name: "Full Stack", icon: "🚀" },
     { key: "ai", name: "AI/ML", icon: "🧠" },
-    { key: "frontend", name: "Frontend", icon: "💻" },
     { key: "blockchain", name: "Blockchain", icon: "⛓️" },
     { key: "mobile", name: "Mobile", icon: "📱" },
   ];
@@ -168,7 +192,7 @@ function Projects() {
           {featuredProjects.map((project, index) => (
             <div
               key={project.id}
-              className="group bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-[1.02] border border-gray-200 dark:border-gray-700 overflow-hidden"
+              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl dark:shadow-gray-900/20 transition-all duration-500 transform hover:scale-[1.02] border border-gray-200 dark:border-gray-700 overflow-hidden"
             >
               {/* Project Header */}
               <div className="p-6 pb-4">
@@ -217,15 +241,22 @@ function Projects() {
 
                 {/* Action Buttons */}
                 <div className="flex space-x-3">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-2 px-4 py-2 bg-gray-800 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-900 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
-                  >
-                    <span>🐙</span>
-                    <span>Code</span>
-                  </a>
+                  {project.github ? (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 px-4 py-2 bg-gray-800 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-900 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+                    >
+                      <span>🐙</span>
+                      <span>Code</span>
+                    </a>
+                  ) : (
+                    <span className="flex items-center space-x-2 px-4 py-2 bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 rounded-lg text-sm font-medium cursor-not-allowed">
+                      <span>�</span>
+                      <span>Private</span>
+                    </span>
+                  )}
                   {project.live && (
                     <a
                       href={project.live}
@@ -317,14 +348,20 @@ function Projects() {
 
               {/* Action Links */}
               <div className="flex justify-between items-center">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm font-medium"
-                >
-                  View Code →
-                </a>
+                {project.github ? (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-sm font-medium"
+                  >
+                    View Code →
+                  </a>
+                ) : (
+                  <span className="text-gray-400 dark:text-gray-500 text-sm font-medium cursor-not-allowed">
+                    Private Code
+                  </span>
+                )}
                 {project.live && (
                   <a
                     href={project.live}
@@ -348,7 +385,7 @@ function Projects() {
             {projects.length}
           </div>
           <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-            Total Projects
+            Projects
           </div>
         </div>
         <div className="text-center p-4 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl border border-green-200 dark:border-green-800">

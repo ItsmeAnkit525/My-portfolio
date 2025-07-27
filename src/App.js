@@ -9,14 +9,14 @@ import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isContentLoaded, setIsContentLoaded] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    // Loading animation
+    // Quick content loading check
     const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+      setIsContentLoaded(true);
+    }, 100); // Very short delay just to prevent white flash
 
     // Scroll progress indicator
     const handleScroll = () => {
@@ -34,27 +34,17 @@ function App() {
     };
   }, []);
 
-  if (isLoading) {
-    return (
-      <div className="fixed inset-0 bg-gray-900 flex items-center justify-center z-50">
-        <div className="text-center">
-          <div className="relative">
-            <div className="w-20 h-20 border-4 border-blue-200 rounded-full animate-ping"></div>
-            <div className="absolute top-0 left-0 w-20 h-20 border-4 border-blue-600 rounded-full animate-spin border-t-transparent"></div>
-          </div>
-          <p className="mt-4 text-white text-lg font-medium">
-            Loading Portfolio...
-          </p>
-          <div className="mt-2 text-blue-400 text-sm">
-            Preparing amazing content
-          </div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="relative bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 min-h-screen text-gray-900 dark:text-gray-100 transition-all duration-500">
+      {/* Quick Loading Overlay */}
+      {!isContentLoaded && (
+        <div className="fixed inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 z-50 flex items-center justify-center">
+          <div className="animate-pulse">
+            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-20"></div>
+          </div>
+        </div>
+      )}
+
       {/* Scroll Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 dark:bg-gray-800 z-50">
         <div
@@ -65,9 +55,9 @@ function App() {
 
       {/* Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-blue-400/5 to-purple-600/5 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-br from-cyan-400/5 to-blue-600/5 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-purple-400/3 to-pink-600/3 rounded-full blur-3xl"></div>
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-blue-400/10 to-purple-600/10 dark:from-blue-400/5 dark:to-purple-600/5 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-br from-cyan-400/10 to-blue-600/10 dark:from-cyan-400/5 dark:to-blue-600/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-purple-400/8 to-pink-600/8 dark:from-purple-400/3 dark:to-pink-600/3 rounded-full blur-3xl"></div>
       </div>
 
       {/* Main Content */}
@@ -111,8 +101,17 @@ function App() {
 
       {/* Custom Styles */}
       <style jsx global>{`
-        html {
+        html,
+        body {
           scroll-behavior: smooth;
+          background: #f9fafb;
+          margin: 0;
+          padding: 0;
+        }
+
+        .dark html,
+        .dark body {
+          background: #111827;
         }
 
         /* Custom scrollbar */
@@ -121,7 +120,7 @@ function App() {
         }
 
         ::-webkit-scrollbar-track {
-          background: #f1f5f9;
+          background: #e2e8f0;
         }
 
         .dark ::-webkit-scrollbar-track {
