@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
+import { FaPaperPlane } from "react-icons/fa";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -299,19 +300,7 @@ function Contact() {
                 ) : (
                   <div className="flex items-center justify-center space-x-2">
                     <span>Send Message</span>
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                      />
-                    </svg>
+                    <FaPaperPlane className="w-5 h-5" />
                   </div>
                 )}
               </button>

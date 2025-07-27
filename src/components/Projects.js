@@ -73,7 +73,7 @@ function Projects() {
       ],
       category: "fullstack",
       image: "📄",
-      github: null,
+      github: "https://github.com/ItsmeAnkit525/visaire",
       live: "https://visaire.in",
       featured: true,
       status: "Completed",
