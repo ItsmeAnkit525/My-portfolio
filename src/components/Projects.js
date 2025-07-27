@@ -170,14 +170,17 @@ function Projects() {
 
   const featuredProjects = projects.filter((project) => project.featured);
 
+  // Show only 2 featured projects on mobile, all on desktop
+  const displayedFeaturedProjects = featuredProjects;
+
   return (
-    <section id="projects" className="my-20">
+    <section id="projects" className="my-12 sm:my-20 px-4 sm:px-0">
       {/* Header */}
-      <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+      <div className="text-center mb-8 sm:mb-12">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
           Featured Projects
         </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4 sm:px-0">
           A showcase of my development journey and technical expertise across
           various domains
         </p>
@@ -189,23 +192,27 @@ function Projects() {
           🌟 Highlighted Work
         </h3>
         <div className="grid lg:grid-cols-2 gap-8">
-          {featuredProjects.map((project, index) => (
+          {displayedFeaturedProjects.map((project, index) => (
             <div
               key={project.id}
-              className="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl dark:shadow-gray-900/20 transition-all duration-500 transform hover:scale-[1.02] border border-gray-200 dark:border-gray-700 overflow-hidden"
+              className={`group bg-white dark:bg-gray-800 rounded-2xl shadow-xl hover:shadow-2xl dark:shadow-gray-900/20 transition-all duration-500 transform hover:scale-[1.02] border border-gray-200 dark:border-gray-700 overflow-hidden ${
+                index >= 2 ? "hidden md:block" : ""
+              }`}
             >
               {/* Project Header */}
               <div className="p-6 pb-4">
                 <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center space-x-3">
-                    <span className="text-4xl">{project.image}</span>
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <div className="flex items-start space-x-2 sm:space-x-3 min-w-0 flex-1">
+                    <span className="text-3xl sm:text-4xl flex-shrink-0">
+                      {project.image}
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors break-words">
                         {project.title}
                       </h3>
-                      <div className="flex items-center space-x-2 mt-1">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-2 mt-1">
                         <span
-                          className={`px-2 py-1 rounded-full text-xs font-medium ${
+                          className={`px-2 py-1 rounded-full text-xs font-medium w-fit ${
                             project.status === "Completed"
                               ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
                               : "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400"
@@ -213,7 +220,7 @@ function Projects() {
                         >
                           {project.status}
                         </span>
-                        <span className="text-xs text-gray-500 dark:text-gray-400">
+                        <span className="text-xs text-gray-500 dark:text-gray-400 mt-1 sm:mt-0">
                           {project.year}
                         </span>
                       </div>

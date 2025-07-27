@@ -72,34 +72,37 @@ function Footer() {
 
       <div className="relative pt-20 pb-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Main Footer Content */}
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8 mb-8">
-            {/* Brand Section */}
+          {/* Main Footer Content - Mobile Optimized */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6 sm:mb-8">
+            {/* Brand Section - Compact on Mobile */}
             <div className="lg:col-span-2">
-              <div className="mb-6">
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
+              <div className="mb-4">
+                <h3 className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
                   Ankit Agrawal
                 </h3>
-                <p className="text-gray-300 leading-relaxed">
-                  Final Year B.Tech CSE Student at IIIT Naya Raipur. Passionate about creating innovative solutions through
-                  technology. Always eager to learn, collaborate, and build
-                  impactful projects.
+                <p className="text-gray-300 leading-relaxed text-sm hidden sm:block">
+                  Final Year B.Tech CSE Student at IIIT Naya Raipur. Passionate
+                  about creating innovative solutions through technology.
+                </p>
+                {/* Mobile: Show only essential info */}
+                <p className="text-gray-300 text-xs sm:hidden">
+                  B.Tech CSE Student • IIIT Naya Raipur
                 </p>
               </div>
 
-              {/* Social Links */}
-              <div className="mb-6">
-                <h4 className="font-semibold mb-3 text-gray-200">
-                  Connect With Me
+              {/* Social Links - Compact on Mobile */}
+              <div className="mb-4">
+                <h4 className="font-semibold mb-2 text-gray-200 text-sm">
+                  Connect
                 </h4>
-                <div className="flex space-x-4">
+                <div className="flex gap-2 sm:gap-4">
                   {socialLinks.map((social) => (
                     <a
                       key={social.name}
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 transform hover:scale-110"
+                      className="group w-8 h-8 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300"
                       title={social.name}
                     >
                       {social.icon}
@@ -109,73 +112,49 @@ function Footer() {
               </div>
             </div>
 
-            {/* Quick Links */}
-            <div>
-              <h4 className="font-semibold mb-4 text-gray-200">Quick Links</h4>
-              <ul className="space-y-2">
-                {quickLinks.map((link) => (
-                  <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="text-gray-300 hover:text-white transition-colors duration-300 text-sm"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact Info */}
-            <div>
-              <h4 className="font-semibold mb-4 text-gray-200">Get In Touch</h4>
-              <div className="space-y-3 text-sm">
-                <div className="flex items-center space-x-2">
-                  <span>📧</span>
+            {/* Contact Info - Simplified for Mobile */}
+            <div className="lg:col-span-1">
+              <h4 className="font-semibold mb-3 text-gray-200 text-sm">
+                Get In Touch
+              </h4>
+              <div className="space-y-2 text-xs sm:text-sm">
+                <div className="flex items-start space-x-2">
+                  <span className="flex-shrink-0">📧</span>
                   <a
                     href="mailto:ankitagrawalofficial525@gmail.com"
-                    className="text-gray-300 hover:text-white transition-colors"
+                    className="text-gray-300 hover:text-white transition-colors break-all"
                   >
                     ankitagrawalofficial525@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <span>📍</span>
-                  <span className="text-gray-300">
-                    Naya Raipur, Chhattisgarh
-                  </span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <span>🎓</span>
-                  <span className="text-gray-300">
-                    IIIT Naya Raipur 
-                  </span>
+                  <span className="flex-shrink-0">📍</span>
+                  <span className="text-gray-300">Naya Raipur, CG</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Bottom Section */}
-          <div className="border-t border-white/20 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              {/* Copyright */}
-              <div className="text-sm text-gray-300">
-                <p>
-                  © {currentYear} Ankit Agrawal. All rights reserved. |
-                  <span className="ml-1">
-                    Built with ❤️ using React & TailwindCSS
-                  </span>
+          {/* Bottom Section - Simplified */}
+          <div className="border-t border-white/20 pt-4 sm:pt-6">
+            <div className="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
+              {/* Copyright - Compact */}
+              <div className="text-xs text-gray-300 text-center sm:text-left">
+                <p>© {currentYear} Ankit Agrawal. All rights reserved.</p>
+                <p className="hidden sm:block mt-1">
+                  Built with ❤️ using React & TailwindCSS
                 </p>
               </div>
 
-              {/* Back to Top */}
+              {/* Back to Top - Smaller on Mobile */}
               <button
                 onClick={handleScrollToTop}
-                className="group flex items-center space-x-2 px-4 py-2 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:scale-105"
+                className="flex items-center space-x-1 px-2 py-1 sm:px-4 sm:py-2 bg-white/10 rounded-lg hover:bg-white/20 transition-all duration-300 text-xs"
               >
-                <span className="text-sm">Back to Top</span>
+                <span className="hidden sm:inline">Back to Top</span>
+                <span className="sm:hidden">Top</span>
                 <svg
-                  className="w-4 h-4 transform group-hover:-translate-y-1 transition-transform"
+                  className="w-3 h-3 sm:w-4 sm:h-4"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -191,17 +170,12 @@ function Footer() {
             </div>
           </div>
 
-          {/* Additional Info */}
-          <div className="mt-8 text-center">
-            <div className="inline-flex items-center space-x-4 text-xs text-gray-400">
+          {/* Status info - Hidden on Mobile to save space */}
+          <div className="mt-4 text-center hidden sm:block">
+            <div className="flex items-center justify-center space-x-4 text-xs text-gray-400">
               <span className="flex items-center space-x-1">
                 <span>🚀</span>
                 <span>Open for opportunities</span>
-              </span>
-              <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
-              <span className="flex items-center space-x-1">
-                <span>💼</span>
-                <span>Available for freelance</span>
               </span>
               <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
               <span className="flex items-center space-x-1">

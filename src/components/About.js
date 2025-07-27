@@ -62,7 +62,7 @@ function About() {
             with a deep love for technology and innovation.
           </p>
 
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed hidden sm:block">
             My coding journey began in my first year when I wrote my first
             "Hello World" program. Since then, I've been on an exciting
             adventure exploring various domains from web development to
@@ -70,11 +70,18 @@ function About() {
             solve real-world problems and create meaningful impact.
           </p>
 
-          <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed hidden sm:block">
             When I'm not coding, you'll find me contributing to open-source
             projects, participating in hackathons, or exploring the latest tech
             trends. I'm always eager to learn new technologies and collaborate
             with fellow developers to build amazing solutions.
+          </p>
+
+          {/* Mobile: Show condensed version */}
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed sm:hidden">
+            I'm passionate about web development, AI, and creating solutions
+            that make a difference. Always learning and exploring new
+            technologies.
           </p>
         </div>
 
@@ -108,7 +115,9 @@ function About() {
           {interests.map((interest, index) => (
             <div
               key={interest.name}
-              className="flex items-center space-x-3 p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300 transform hover:scale-105"
+              className={`flex items-center space-x-3 p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-300 transform hover:scale-105 ${
+                index >= 4 ? "hidden sm:flex" : ""
+              }`}
             >
               <span className="text-2xl">{interest.icon}</span>
               <span className="font-medium text-gray-800 dark:text-gray-200">

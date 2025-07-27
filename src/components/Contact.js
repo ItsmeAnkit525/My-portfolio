@@ -102,19 +102,19 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="my-20">
+    <section id="contact" className="my-12 sm:my-20 px-4 sm:px-0">
       {/* Header */}
-      <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+      <div className="text-center mb-8 sm:mb-12">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
           Let's Connect
         </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4 sm:px-0">
           I'm always excited to discuss new opportunities, collaborate on
           projects, or just have a chat about technology
         </p>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-12">
+      <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 max-w-7xl mx-auto">
         {/* Contact Information */}
         <div>
           <div className="mb-8">
@@ -146,26 +146,26 @@ function Contact() {
                 }
                 className={`block group ${method.bgColor} ${method.borderColor} border rounded-xl p-4 hover:shadow-lg transition-all duration-300 transform hover:scale-105`}
               >
-                <div className="flex items-center space-x-4">
+                <div className="flex items-start space-x-3 sm:space-x-4">
                   <div
-                    className={`w-12 h-12 bg-gradient-to-r ${method.color} rounded-full flex items-center justify-center text-white text-xl shadow-lg`}
+                    className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${method.color} rounded-full flex items-center justify-center text-white text-lg sm:text-xl shadow-lg flex-shrink-0`}
                   >
                     {method.icon}
                   </div>
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <div className="flex-1 min-w-0">
+                    <h4 className="font-semibold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors text-sm sm:text-base">
                       {method.name}
                     </h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-1">
                       {method.description}
                     </p>
-                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                    <p className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 break-all sm:break-words">
                       {method.value}
                     </p>
                   </div>
-                  <div className="text-gray-400 group-hover:text-blue-500 transition-colors">
+                  <div className="text-gray-400 group-hover:text-blue-500 transition-colors flex-shrink-0">
                     <svg
-                      className="w-5 h-5"
+                      className="w-4 h-4 sm:w-5 sm:h-5"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -199,13 +199,13 @@ function Contact() {
         </div>
 
         {/* Contact Form */}
-        <div>
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-8">
-            <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-6">
+        <div className="px-4 sm:px-0">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-4 sm:p-8">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-200 mb-6">
               Send Message
             </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label
@@ -221,7 +221,7 @@ function Contact() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors"
+                    className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors text-sm sm:text-base"
                     placeholder="John Doe"
                   />
                 </div>
@@ -239,7 +239,7 @@ function Contact() {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors"
+                    className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors text-sm sm:text-base"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -259,7 +259,7 @@ function Contact() {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors text-sm sm:text-base"
                   placeholder="Let's collaborate on a project"
                 />
               </div>
@@ -277,8 +277,8 @@ function Contact() {
                   value={formData.message}
                   onChange={handleInputChange}
                   required
-                  rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors resize-none"
+                  rows={4}
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors resize-none text-sm sm:text-base"
                   placeholder="Tell me about your project or just say hello..."
                 />
               </div>
@@ -286,7 +286,7 @@ function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full py-4 px-6 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 ${
+                className={`w-full py-3 sm:py-4 px-6 rounded-lg font-semibold text-white transition-all duration-300 transform hover:scale-105 text-sm sm:text-base ${
                   isSubmitting
                     ? "bg-gray-400 cursor-not-allowed"
                     : "bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 shadow-lg hover:shadow-xl"
@@ -294,13 +294,13 @@ function Contact() {
               >
                 {isSubmitting ? (
                   <div className="flex items-center justify-center space-x-2">
-                    <div className="w-5 h-5 border-2 border-white rounded-full animate-spin border-t-transparent"></div>
+                    <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white rounded-full animate-spin border-t-transparent"></div>
                     <span>Sending...</span>
                   </div>
                 ) : (
                   <div className="flex items-center justify-center space-x-2">
                     <span>Send Message</span>
-                    <FaPaperPlane className="w-5 h-5" />
+                    <FaPaperPlane className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                 )}
               </button>
@@ -338,22 +338,22 @@ function Contact() {
       </div>
 
       {/* Call to Action */}
-      <div className="mt-16 text-center">
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8 border border-blue-200 dark:border-blue-800">
-          <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4">
+      <div className="mt-12 sm:mt-16 text-center px-4 sm:px-0">
+        <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-6 sm:p-8 border border-blue-200 dark:border-blue-800">
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4">
             Ready to Start Something Great?
           </h3>
-          <p className="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-6 max-w-2xl mx-auto">
             I'm always open to discussing new opportunities, whether it's a
             full-time position, freelance work, or just an interesting project
             to collaborate on.
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="https://drive.google.com/file/d/1R6TsqKQQdElMXYCPcqJmwbGYR4JWUQsc/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base"
             >
               📄 Download Resume
             </a>

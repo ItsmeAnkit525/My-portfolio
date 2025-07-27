@@ -89,7 +89,7 @@ function Hero() {
         </div>
 
         {/* Name */}
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in-up delay-200">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 animate-fade-in-up delay-200 leading-tight">
           Hi, I'm{" "}
           <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 dark:from-blue-400 dark:via-purple-400 dark:to-cyan-400 bg-clip-text text-transparent animate-gradient">
             Ankit Agrawal
@@ -109,10 +109,10 @@ function Hero() {
                   : "opacity-0 transform scale-95"
               }`}
             >
-              <span className="text-2xl md:text-3xl font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
+              <span className="text-xl sm:text-2xl md:text-3xl font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
                 {roles[currentRole].text}
               </span>
-              <span className="text-2xl md:text-3xl">
+              <span className="text-xl sm:text-2xl md:text-3xl">
                 {roles[currentRole].emoji}
               </span>
             </div>
@@ -120,7 +120,7 @@ function Hero() {
         </div>
 
         {/* Description */}
-        <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-600">
+        <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in-up delay-600 px-2">
           Passionate about creating innovative solutions and building amazing
           web experiences. Always eager to learn new technologies and solve
           complex problems.

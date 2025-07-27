@@ -120,52 +120,6 @@ function Education() {
     // },
   ];
 
-  const achievements = [
-    // {
-    //   title: "Smart India Hackathon 2024",
-    //   category: "National Level Competition",
-    //   description:
-    //     "Winner - Developed AI-powered solution for smart city management",
-    //   date: "February 2024",
-    //   icon: "🏆",
-    //   rank: "1st Place",
-    // },
-    // {
-    //   title: "CodeChef Long Challenge",
-    //   category: "Competitive Programming",
-    //   description: "Achieved 5-star rating with global rank under 500",
-    //   date: "December 2023",
-    //   icon: "⭐",
-    //   rank: "5 Star",
-    // },
-    // {
-    //   title: "IEEE Paper Publication",
-    //   category: "Research & Publication",
-    //   description:
-    //     "Published research paper on 'ML Applications in Web Development'",
-    //   date: "October 2023",
-    //   icon: "📄",
-    //   rank: "Published",
-    // },
-    // {
-    //   title: "Google Developer Student Club Lead",
-    //   category: "Leadership",
-    //   description: "Led technical events and workshops for 200+ students",
-    //   date: "August 2023 - Present",
-    //   icon: "👥",
-    //   rank: "Leadership",
-    // },
-    // {
-    //   title: "HackerRank Problem Solving Gold Badge",
-    //   category: "Competitive Programming",
-    //   description:
-    //     "Solved 300+ algorithmic problems across various difficulty levels",
-    //   date: "June 2023",
-    //   icon: "🥇",
-    //   rank: "Gold Badge",
-    // },
-  ];
-
   const getGradeColor = (percentage) => {
     const num = parseInt(percentage);
     if (num >= 90) return "text-green-600 dark:text-green-400";
@@ -177,30 +131,32 @@ function Education() {
   const tabs = [
     { key: "formal", label: "Education", icon: "🎓" },
     { key: "certifications", label: "Certifications", icon: "📜" },
-    { key: "achievements", label: "Achievements", icon: "🏆" },
   ];
 
   return (
-    <section id="education" className="my-20">
+    <section
+      id="education"
+      className="my-12 sm:my-20 px-4 sm:px-0 overflow-hidden"
+    >
       {/* Header */}
-      <div className="text-center mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
+      <div className="text-center mb-8 sm:mb-12">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent break-words">
           Education & Credentials
         </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4 sm:px-0 break-words">
           My academic journey and professional development through continuous
           learning
         </p>
       </div>
 
       {/* Tab Navigation */}
-      <div className="flex justify-center mb-8">
-        <div className="flex bg-gray-100 dark:bg-gray-800 rounded-xl p-1">
+      <div className="flex justify-center mb-6 sm:mb-8 px-4 sm:px-0">
+        <div className="flex bg-gray-100 dark:bg-gray-800 rounded-xl p-1 w-full max-w-md sm:w-auto">
           {tabs.map((tab) => (
             <button
               key={tab.key}
               onClick={() => setActiveTab(tab.key)}
-              className={`flex items-center space-x-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+              className={`flex items-center space-x-1 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-medium transition-all duration-300 text-xs sm:text-sm flex-1 sm:flex-none justify-center ${
                 activeTab === tab.key
                   ? "bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-lg"
                   : "text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
@@ -208,13 +164,14 @@ function Education() {
             >
               <span>{tab.icon}</span>
               <span className="hidden sm:inline">{tab.label}</span>
+              <span className="sm:hidden">{tab.label.split(" ")[0]}</span>
             </button>
           ))}
         </div>
       </div>
 
       {/* Tab Content */}
-      <div className="min-h-[600px]">
+      <div className="min-h-[600px] overflow-hidden">
         {activeTab === "formal" && (
           <div className="space-y-8">
             {formalEducation.map((edu, index) => (
@@ -228,14 +185,14 @@ function Education() {
                     <div className="flex-1">
                       <div className="flex items-start space-x-4 mb-6">
                         <div className="text-4xl">{edu.icon}</div>
-                        <div>
-                          <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-2">
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-2 break-words">
                             {edu.degree}
                           </h3>
-                          <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-1">
+                          <p className="text-lg font-semibold text-blue-600 dark:text-blue-400 mb-1 break-words">
                             {edu.institution}
                           </p>
-                          <p className="text-gray-600 dark:text-gray-400 mb-2">
+                          <p className="text-gray-600 dark:text-gray-400 mb-2 break-words">
                             📍 {edu.location}
                           </p>
                           <div className="flex flex-wrap gap-4 text-sm">
@@ -318,11 +275,18 @@ function Education() {
                             {edu.coursework.map((course, idx) => (
                               <span
                                 key={idx}
-                                className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm"
+                                className={`px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm ${
+                                  idx >= 6 ? "hidden sm:inline-block" : ""
+                                }`}
                               >
                                 {course}
                               </span>
                             ))}
+                            {edu.coursework.length > 6 && (
+                              <span className="px-3 py-1 bg-blue-100 dark:bg-blue-700 text-blue-700 dark:text-blue-300 rounded-full text-sm sm:hidden">
+                                +{edu.coursework.length - 6} more
+                              </span>
+                            )}
                           </div>
                         </div>
                       )}
@@ -380,16 +344,16 @@ function Education() {
                 >
                   <div className="flex items-start space-x-4 mb-4">
                     <div className="text-3xl">{cert.icon}</div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-1">
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-1 break-words">
                         {cert.name}
                       </h3>
-                      <p className="text-blue-600 dark:text-blue-400 font-semibold mb-1">
+                      <p className="text-blue-600 dark:text-blue-400 font-semibold mb-1 break-words">
                         {cert.issuer}
                       </p>
-                      <div className="flex items-center justify-between text-sm text-gray-600 dark:text-gray-400">
-                        <span>📅 {cert.date}</span>
-                        <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 rounded-full text-xs">
+                      <div className="flex items-center justify-between text-sm text-gray-600 dark:text-gray-400 flex-wrap gap-2">
+                        <span className="break-words">📅 {cert.date}</span>
+                        <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 rounded-full text-xs whitespace-nowrap">
                           {cert.status}
                         </span>
                       </div>
@@ -397,14 +361,14 @@ function Education() {
                   </div>
 
                   <div className="mb-4">
-                    <div className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                    <div className="text-xs text-gray-500 dark:text-gray-400 mb-2 break-all">
                       Credential ID: {cert.credentialId}
                       {cert.verificationLink && (
                         <a
                           href={cert.verificationLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="ml-2 text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                          className="ml-2 text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 whitespace-nowrap"
                         >
                           🔗 Verify
                         </a>
@@ -460,40 +424,6 @@ function Education() {
                 </div>
               </div>
             </div>
-          </div>
-        )}
-
-        {activeTab === "achievements" && (
-          <div className="space-y-6">
-            {achievements.map((achievement, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-r from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 hover:shadow-xl transition-all duration-300"
-              >
-                <div className="flex items-start space-x-6">
-                  <div className="text-4xl">{achievement.icon}</div>
-                  <div className="flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3">
-                      <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">
-                        {achievement.title}
-                      </h3>
-                      <span className="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-400 rounded-full text-sm font-medium">
-                        {achievement.rank}
-                      </span>
-                    </div>
-                    <p className="text-blue-600 dark:text-blue-400 font-semibold mb-2">
-                      {achievement.category}
-                    </p>
-                    <p className="text-gray-600 dark:text-gray-400 mb-3 leading-relaxed">
-                      {achievement.description}
-                    </p>
-                    <div className="text-sm text-gray-500 dark:text-gray-400">
-                      📅 {achievement.date}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         )}
       </div>
